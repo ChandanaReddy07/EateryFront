@@ -63,9 +63,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="user-login">{
-          isAuthenticated()? <button className="login-button" style={{backgroundColor:"red"}} onClick={ signout(() => {
+          isAuthenticated()? <button className="login-button" style={{backgroundColor:"red"}} onClick={()=>(signout(() => {
             console.log("signinout")
-          })}>
+            window.location.href = "/";})
+          )}>
           Signout
         </button>  :
           <div>

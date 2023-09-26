@@ -5,14 +5,24 @@ import { isAuthenticated } from "../helper/user";
 const MenuItemCard = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [isOrderDialogOpen, setIsOrderDialogOpen] = useState(false);
+  const [showLoginOverlay, setShowLoginOverlay] = useState(false);
   const { data } = props;
   const { user,token } = isAuthenticated();
 
-  const openOrderDialog = () => {
-    setIsOrderDialogOpen(true);
-    console.log(data._id);
-  };
 
+  const openOrderDialog = () => {
+    if (user) {
+      // If the user is signed in, open the order dialog
+      setIsOrderDialogOpen(true);
+    } else {
+      // If the user is not signed in, show the Login overlay
+      setShowLoginOverlay(true);
+    }
+  };
+  const handleCloseLoginOverlay = () => {
+    setShowLoginOverlay(false);
+  };
+  
   const closeOrderDialog = () => {
     setIsOrderDialogOpen(false);
   };
@@ -80,6 +90,7 @@ const MenuItemCard = (props) => {
         </div>
       </div>
 
+
       {isOrderDialogOpen && (
         <div className="overlay">
           <div className="modal-dialog" role="document">
@@ -94,6 +105,7 @@ const MenuItemCard = (props) => {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+
               <div className="modal-body">
                 <p>
                   <strong>Quantity: </strong>
@@ -140,6 +152,38 @@ const MenuItemCard = (props) => {
           </div>
         </div>
       )}
+
+{showLoginOverlay && (
+      <div className="overlay">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Login Required</h5>
+              <button
+                type="button"
+                className="close"
+                onClick={handleCloseLoginOverlay}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>You must be signed in to place an order.</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleCloseLoginOverlay}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
     </div>
   );
 };

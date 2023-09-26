@@ -36,7 +36,18 @@ code {
       margin-top: 0;
       margin-bottom: 30px;
   }
-
+  .btn-2 {
+    color: #ab6f2b;
+    padding: 20px 70px;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 22px;
+    border-radius: 20px;
+    border: 1px solid #ab6f2b;
+    background-color: #f9e5b9;
+    margin:15px 10px;
+    cursor: pointer;
+  }
  
   
   #appname{

@@ -424,6 +424,22 @@ body {
   align-items: center;
   min-height: 91vh;
   background-color: #f4f4f4;
+
+    /* Set the background image URL */
+    background-image: url("https://wallpapercave.com/wp/wp6347415.jpg");
+  
+    /* Specify background size and positioning */
+    background-size: cover; /* Cover the entire component without stretching */
+    background-position: center; /* Center the image horizontally and vertically */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+  
+    /* Add additional styles or styling here */
+    /* For example, you can set a background color */
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent black overlay */
+    
+    /* Set a minimum height to ensure content is visible */
+
+
 }
 
 .bill-container {
@@ -688,4 +704,57 @@ input[type="number"] {
 
 .signup-dialog button:hover {
   background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text horizontally */
+    /* padding:100px 0 100px 100px; */
+    width:100%;
+    margin: auto;
+    padding: 0;
+    margin-top: 10px;
+
+  }
+
+  .container1{
+    padding: 0;
+    width: 100%;
+  }
+  #img1{
+      
+      width:80%;
+      height:350px;
+      margin-top: 0;
+      margin-bottom: 30px;
+  }
+  .btn-2 {
+    color: #ab6f2b;
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 22px;
+    border-radius: 20px;
+    border: 1px solid #ab6f2b;
+    background-color: #f9e5b9;
+    margin:15px 10px;
+    cursor: pointer;
+  }
+ 
+  
+  #appname{
+   
+    font-size: 1rem;
+  }
+
+  #appbarTitle{
+    font-size: 10px;
+  }
+
+
+  .title {
+    margin-top: 20px; /* Add some spacing between elements */
+  }
 }

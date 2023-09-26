@@ -55,6 +55,8 @@ function Bill({ userId }) {
         totalCost: calculateTotal(),
       });
 
+      
+
       const newBillData = {
         orderDetails,
         tipPercentage,
@@ -63,6 +65,7 @@ function Bill({ userId }) {
         total: calculateTotal(),
       };
       setBillData(newBillData);
+      // window.location.href = "/bill";
     } catch (error) {
       console.log(error);
     }
