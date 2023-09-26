@@ -42,9 +42,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="containerN">
+      <NavLink to="/">
         <div style={{fontFamily:"Dancing Script, cursive",fontSize:"2rem",fontWeight:"bold"}}>
           Eatery
-        </div>
+        </div></NavLink>
         <div className="menu-icon" onClick={handleShowNavbar}>
           {/* Add your hamburger menu icon */}
         </div>
