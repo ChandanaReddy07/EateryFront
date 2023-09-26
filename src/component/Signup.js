@@ -9,7 +9,7 @@ function Signup({ onSignupSuccess, onClose }) {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/user/register", {
+      const response = await axios.post("https://eatery-syux.onrender.com/user/register", {
         username,
         email,
         password,
@@ -25,7 +25,13 @@ function Signup({ onSignupSuccess, onClose }) {
   return (
     <div className="login-overlay">
       <div className="login-card">
-        <div className="login-header">Signup</div>
+        <div className="login-header">Signup  <button
+                  type="button"
+                  className="close"
+                  onClick={onClose}
+                >
+                  <span aria-hidden="true">&times;</span></button></div>
+        
         <form onSubmit={handleSignup} className="login-form">
           <label>Username:</label>
           <input
@@ -54,13 +60,14 @@ function Signup({ onSignupSuccess, onClose }) {
           <button type="submit" className="login-button">
             Signup
           </button>
-        </form>
-        <p>
+          <p>
           Already have an account?{" "}
-          <span className="signup-link" onClick={onClose}>
+          <span style={{color:"blue"}} className="signup-link" onClick={onClose}>
             Login
           </span>
         </p>
+        </form>
+
       </div>
     </div>
   );

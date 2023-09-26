@@ -18,7 +18,7 @@ function Login({onClose}) {
     e.preventDefault();
     console.log("email",email,"password",password)
     try {
-      const response = await axios.post("http://localhost:3001/user/login", {
+      const response = await axios.post("https://eatery-syux.onrender.com/user/login", {
         email,
         password,
       });
@@ -43,6 +43,7 @@ function Login({onClose}) {
 
   const handleSignupClick = () => {
     // Show the Signup overlay when the "Sign Up" link is clicked
+    // onClose()
     setShowSignup(true);
   };
 
@@ -54,7 +55,12 @@ function Login({onClose}) {
   return (
     <div className="login-overlay">
       <div className="login-card">
-        <div className="login-header">Login</div>
+        <div className="login-header">Login  <button
+                  type="button"
+                  className="close"
+                  onClick={onClose}
+                >
+                  <span aria-hidden="true">&times;</span></button></div>
         {errorMessage && (
           <p className="error-message">{errorMessage}</p>
         )}
@@ -78,14 +84,14 @@ function Login({onClose}) {
           <button type="submit" className="login-button">
             Login
           </button>
-        </form>
-
-        <p>
+          <p>
           Don't have an account?{" "}
           <span className="signup-link" onClick={handleSignupClick}>
-            Sign Up
+            <span style={{color:"blue"}}>Sign Up</span>
           </span>
         </p>
+        </form>
+
       </div>
       {showSignup && (
         <Signup

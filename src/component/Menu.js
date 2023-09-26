@@ -22,7 +22,7 @@ function Menu() {
 
   useEffect(() => {
     // Fetch menu items from the backend API
-    axios.get("http://localhost:3001/menu/menu").then((response) => {
+    axios.get("https://eatery-syux.onrender.com/menu/menu").then((response) => {
       setMenuItems(response.data);
       setFilteredItems(response.data);
     });
@@ -59,9 +59,9 @@ function Menu() {
 
   return (
     <div>
-      <h2>Menu</h2>
+      <h2 style={{fontFamily: "Dancing Script, cursive",textAlign:"center",fontSize:"2rem"}}>Tasty Food</h2>
       <div className="containerb">
-        {/* Category filter buttons */}
+        
         {[["All Items","Z"], ["Starters","A"], ["Main Courses","C"], ["Beverages","B"], ["Desserts","D"]].map(
           (category) => (
             <div key={category[1]}>
@@ -76,7 +76,7 @@ function Menu() {
             </div>
           )
         )}
-      </div>
+ 
 
       {isMobileView ? (
         // Mobile view: Categories are static, only items are scrollable
@@ -95,6 +95,7 @@ function Menu() {
           ))}
         </Carousel>
       )}
+           </div>
     </div>
   );
 }

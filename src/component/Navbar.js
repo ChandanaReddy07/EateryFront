@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Login from "./Login"; // Import the Login component
 import Signup from "./Signup"; // Import the Signup component
-import { isAuthenticated } from "../helper/user";
+import { isAuthenticated, signout } from "../helper/user";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -42,8 +42,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="containerN">
-        <div className="logo">
-          <img src="/path/to/your/logo.png" alt="Logo" />
+        <div style={{fontFamily:"Dancing Script, cursive",fontSize:"2rem",fontWeight:"bold"}}>
+          Eatery
         </div>
         <div className="menu-icon" onClick={handleShowNavbar}>
           {/* Add your hamburger menu icon */}
@@ -62,7 +62,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="user-login">{
-          isAuthenticated()? user.username :
+          isAuthenticated()? <button className="login-button" style={{backgroundColor:"red"}} onClick={ signout(() => {
+            console.log("signinout")
+          })}>
+          Signout
+        </button>  :
           <div>
            {showLoginOverlay && <Login  onClose={handleCloseOverlay}  />}
           {showSignupOverlay && <Signup  onClose={handleCloseOverlay}  />}

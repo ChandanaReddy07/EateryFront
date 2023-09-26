@@ -8,16 +8,20 @@ import "jspdf-autotable"; // Import the autotable plugin
 function Bill({ userId }) {
   const [orderDetails, setOrderDetails] = useState([]);
   const [tipPercentage, setTipPercentage] = useState(10);
-  const { user } = isAuthenticated();
+  const { user, token } = isAuthenticated();
   const [billData, setBillData] = useState(null);
 
   useEffect(() => {
+
+    if(user)
     axios
-      .get(`http://localhost:3001/order/orders/${user._id}`)
+      .get(`http://localhost:3001/order/orders/${user._id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         setOrderDetails(response.data);
-      });
-  }, [userId, user._id]);
+      })
+  }, [userId, token]);
 
   const calculateSubtotal = () => {
     return orderDetails.reduce(
@@ -118,44 +122,50 @@ function Bill({ userId }) {
   };
 
   return (
+    <div className="containerbill">
     <div className="bill-container">
-      <h2>Your Bill</h2>
-      <div className="order-details">
-        {orderDetails.map((item, index) => (
-          <div key={index} className="order-item">
-            <span className="item-quantity">
-              {item.quantity} X {item.itemName}
-            </span>
-            <span className="item-price">
-              ${(item.price * item.quantity).toFixed(2)}
-            </span>
+      {isAuthenticated() ? (
+        <>
+          <h2>Your Bill</h2>
+          <div className="order-details">
+            {orderDetails.map((item, index) => (
+              <div key={index} className="order-item">
+                <span className="item-quantity">
+                  {item.quantity} X {item.itemName}
+                </span>
+                <span className="item-price">
+                  ${(item.price * item.quantity).toFixed(2)}
+                </span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <hr />
-      <div className="tip-input">
-        <label htmlFor="tipPercentage">Tip Percentage:</label>
-        <input
-          type="number"
-          id="tipPercentage"
-          value={tipPercentage}
-          onChange={handleTipChange}
-        />
-      </div>
-      <hr />
-      <div className="totals">
-        <div className="order-item">
-          <span className="item-quantity">Subtotal: </span>
-          <span className="item-price">${calculateSubtotal()}</span>
-        </div>
-        <div className="order-item">
-          <span className="item-quantity">Total: </span>
-          <span className="item-price">${calculateTotal()}</span>
-        </div>
-      </div>
-      <button onClick={handlePayment}>Pay Now</button>
-      
-    </div>
+          <hr />
+          <div className="tip-input">
+            <label htmlFor="tipPercentage">Tip Percentage:</label>
+            <input
+              type="number"
+              id="tipPercentage"
+              value={tipPercentage}
+              onChange={handleTipChange}
+            />
+          </div>
+          <hr />
+          <div className="totals">
+            <div className="order-item">
+              <span className="item-quantity">Subtotal: </span>
+              <span className="item-price">${calculateSubtotal()}</span>
+            </div>
+            <div className="order-item">
+              <span className="item-quantity">Total: </span>
+              <span className="item-price">${calculateTotal()}</span>
+            </div>
+          </div>
+          <button className="button1" onClick={handlePayment}>Pay Now</button>
+        </>
+      ) : (
+        <p>You haven't placed any orders yet.</p>
+      )}
+    </div></div>
   );
 }
 
