@@ -15,11 +15,12 @@ function Bill({ userId }) {
 
     if(user)
     axios
-      .get(`http://localhost:3001/order/orders/${user._id}`, {
+      .get(`https://eatery-syux.onrender.com/order/orders/${user._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
         setOrderDetails(response.data);
+        // console.log("ordersss",orderDetails.length)
       })
   }, [userId, token]);
 
@@ -44,18 +45,16 @@ function Bill({ userId }) {
 
   const handlePayment = async () => {
     try {
-      const orderUrl = "http://localhost:3001/payment/orders";
+      const orderUrl = "https://eatery-syux.onrender.com/payment/orders";
       const { data } = await axios.post(orderUrl, { amount: calculateTotal() });
-      console.log("dataaaaa", data);
+      // console.log("dataaaaa", data);
       initPayment(data.data);
 
-      const clearOrderUrl = `http://localhost:3001/payment/order/clear/${user._id}`;
+      const clearOrderUrl = `https://eatery-syux.onrender.com/payment/order/clear/${user._id}`;
       await axios.post(clearOrderUrl, {
         tipAmount: calculateSubtotal(),
         totalCost: calculateTotal(),
       });
-
-      
 
       const newBillData = {
         orderDetails,
@@ -80,9 +79,9 @@ function Bill({ userId }) {
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyUrl = "http://localhost:3001/payment/verify";
+          const verifyUrl = "https://eatery-syux.onrender.com/payment/verify";
           const { data } = await axios.post(verifyUrl, response);
-          console.log(data);
+          // console.log(data);
           generatePDF(); // Generate the PDF when payment is successful
         } catch (error) {
           console.log(error);
@@ -127,7 +126,7 @@ function Bill({ userId }) {
   return (
     <div className="containerbill">
     <div className="bill-container">
-      {isAuthenticated() ? (
+      {isAuthenticated() &&  orderDetails.length !== 0 ? (
         <>
           <h2>Your Bill</h2>
           <div className="order-details">

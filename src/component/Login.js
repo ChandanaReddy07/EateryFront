@@ -16,7 +16,7 @@ function Login({onClose}) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("email",email,"password",password)
+    // console.log("email",email,"password",password)
     try {
       const response = await axios.post("https://eatery-syux.onrender.com/user/login", {
         email,

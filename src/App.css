@@ -300,18 +300,18 @@ body {
 
 }
 
-.nav-elements ul a.active::after {
+/* .nav-elements ul a.active::after {
   content: "";
   /* position: absolute; */
-  bottom: -4px;
+  /* bottom: -4px;
   left: 0;
   width: 100%;
   height: 2px;
   z-index: 10;
   background-color: #574c4c;
-}
+} */ 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .nav-elements ul li:not(:last-child) {
     margin-right: 30px;
   }
@@ -347,7 +347,7 @@ body {
     margin-right: unset;
     margin-top: 22px;
   }
-}
+} */
 
 
 /* adit */

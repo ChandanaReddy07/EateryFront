@@ -24,15 +24,7 @@ const Navbar = () => {
     setShowSignupOverlay(true);
     setShowLoginOverlay(false);
   };
-  // const [user, setUser] = useState(null);
 
-  // const handleLoginSuccess = (username) => {
-  //   setUser({ username });
-  // };
-
-  // const handleSignupSuccess = (username) => {
-  //   setUser({ username });
-  // };
 
   const handleCloseOverlay = () => {
     setShowLoginOverlay(false);
@@ -64,7 +56,7 @@ const Navbar = () => {
         </div>
         <div className="user-login">{
           isAuthenticated()? <button className="login-button" style={{backgroundColor:"red"}} onClick={()=>(signout(() => {
-            console.log("signinout")
+            // console.log("signinout")
             window.location.href = "/";})
           )}>
           Signout
