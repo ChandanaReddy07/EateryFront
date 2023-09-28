@@ -58,7 +58,7 @@ function Menu() {
   };
 
   return (
-    <div>
+    <div className="container2">
       <h2 style={{fontFamily: "Dancing Script, cursive",textAlign:"center",fontSize:"2rem"}}>Tasty Food</h2>
       <div className="containerb">
         

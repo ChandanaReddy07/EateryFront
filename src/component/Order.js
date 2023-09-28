@@ -21,6 +21,8 @@ function Bill({ userId }) {
       .then((response) => {
         setOrderDetails(response.data);
         // console.log("ordersss",orderDetails.length)
+      }).catch((error)=>{
+        console.log("axios Error",error)
       })
   }, [userId, token]);
 
@@ -103,7 +105,7 @@ function Bill({ userId }) {
     const tableData = orderDetails.map((item) => [
       item.quantity,
       item.itemName,
-      `$${(item.price * item.quantity).toFixed(2)}`,
+      `$Rs. {(item.price * item.quantity).toFixed(2)}`,
     ]);
 
     doc.autoTable({
@@ -116,9 +118,9 @@ function Bill({ userId }) {
     const tipAmount = calculateTip();
     const total = calculateTotal();
 
-    doc.text(`Subtotal: $${subtotal}`, 10, doc.autoTable.previous.finalY + 10);
-    doc.text(`Tip: $${tipAmount}`, 10, doc.autoTable.previous.finalY + 20);
-    doc.text(`Total: $${total}`, 10, doc.autoTable.previous.finalY + 30);
+    doc.text(`Subtotal: $Rs. {subtotal}`, 10, doc.autoTable.previous.finalY + 10);
+    doc.text(`Tip: $Rs. ${tipAmount}`, 10, doc.autoTable.previous.finalY + 20);
+    doc.text(`Total: $Rs. {total}`, 10, doc.autoTable.previous.finalY + 30);
 
     doc.save("bill.pdf");
   };
@@ -136,7 +138,7 @@ function Bill({ userId }) {
                   {item.quantity} X {item.itemName}
                 </span>
                 <span className="item-price">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  Rs. {(item.price * item.quantity).toFixed(2)}
                 </span>
               </div>
             ))}
@@ -155,11 +157,11 @@ function Bill({ userId }) {
           <div className="totals">
             <div className="order-item">
               <span className="item-quantity">Subtotal: </span>
-              <span className="item-price">${calculateSubtotal()}</span>
+              <span className="item-price">Rs. {calculateSubtotal()}</span>
             </div>
             <div className="order-item">
               <span className="item-quantity">Total: </span>
-              <span className="item-price">${calculateTotal()}</span>
+              <span className="item-price">Rs. {calculateTotal()}</span>
             </div>
           </div>
           <button className="button1" onClick={handlePayment}>Pay Now</button>

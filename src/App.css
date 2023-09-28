@@ -274,6 +274,30 @@ body {
 
 .nav-elements {
 }
+.fa-heart-o {
+  color: white;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 3px;
+  border: 2px black solid;
+
+
+
+  background-color: black;
+
+}
+
+.fa-heart {
+  color: red;
+  border: 2px black solid;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 3px;
+
+  background-color: black;
+}
+
+
 
 .nav-elements ul {
   display: flex;
@@ -281,9 +305,10 @@ body {
   list-style-type: none;
 }
 
-.nav-elements ul li:not(:last-child) {
+.nav-elements ul li {
   margin-right: 60px;
 }
+
 
 .nav-elements ul a {
   font-size: 16px;
@@ -294,7 +319,7 @@ body {
 
 .nav-elements ul a.active {
   color: #574c4c;
-  font-weight: 500;
+  font-weight: 600;
   position: relative;
   z-index: 10;
 
@@ -362,33 +387,34 @@ body {
 
 /* Styles for container */
 .container {
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
+  background-color: rgb(46, 22, 5);
+  /* padding-left: 30px; */
   /* background-color: red; */
   /* padding-left: 30px; */
-  justify-content: center;
+  justify-content: space-between;
   /* padding: 0 0 0 20px; */
 }
 
 /* Styles for title */
 .title {
   /* flex-grow: 3; */
-  color: black;
+  color: white;
   font-size: 2.5em;
   font-family: 'Lato';
 }
 
 
 .container1 {
-
-  padding: 0 30px;
+  padding: 0 70px ;
 }
 
 
 /* Styles for image */
 .image {
-  width: 65%;
+  width: 60%;
   height: 90vh;
   /* margin-top: 100px; */
 }
@@ -416,7 +442,9 @@ body {
 }
 
 /* order */
+
 /* Bill.css */
+
 
 .containerbill {
   display: flex;
@@ -713,22 +741,43 @@ input[type="number"] {
     text-align: center; /* Center text horizontally */
     /* padding:100px 0 100px 100px; */
     width:100%;
-    margin: auto;
+   
     padding: 0;
-    margin-top: 10px;
+    /* height: 100vh - 60px; */
+    margin: 0;
+  /* min-height: 91vh; */
+  background-size: cover; /* Cover the entire component without stretching */
+    background-position: center;
 
+
+
+  }
+  .nav-elements ul li {
+    margin-right: 1.5rem;
+  }
+  .homet{
+  display: none;
   }
 
   .container1{
     padding: 0;
-    width: 100%;
+    width: 95%;
+    /* line-height: 1cm; */
+    /* margin-top: 50px; */
+    font-size: 9px;
+    height:50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
   }
   #img1{
       
       width:80%;
-      height:350px;
-      margin-top: 0;
-      margin-bottom: 30px;
+      height:230px;
+      margin-bottom: 20vh;
+      /* margin-bottom: 60px ; */
   }
   .btn-2 {
     color: #ab6f2b;

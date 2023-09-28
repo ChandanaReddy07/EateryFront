@@ -15,14 +15,14 @@ const Home = () => {
     <h1 className="title">
     {/* <h1  className="appname1">HUNGR<span style={{color:"green"}}>AZy</span></h1> */}
 
-      <span  className="colorText">Namaste💝</span><br/>
-        Try the most delicious<br/>
-         food <span>of the weak</span> 
+      <span  className="colorText" style={{fontFamily:"Dancing Script, cursive" ,lineHeight:"2"}}>Namaste💝</span><br/>
+      <span style={{fontFamily:" Montserrat, sans-serif",fontWeight:"4"}}>Try the most delicious<br/>
+         foodof the weak.</span> 
         </h1>
-        <h2 style={{fontFamily: 'Patrick Hand'}}>Take a seat grab a treat</h2>
+        <h2 style={{fontFamily: 'Dancing Script, cursive' ,color:"white",fontWeight:"2"}}>Take a seat grab a treat</h2>
      
     </div>
-         <img className="image" id="img1" src="https://i.kym-cdn.com/photos/images/original/002/298/038/6a9.gifv" alt=""/>
+         <img className="image" id="img1" src="https://pbs.twimg.com/media/FBiX-_jXIAAHh5C?format=jpg&name=large" alt=""/>
   </div>
   )
 }

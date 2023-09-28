@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { isAuthenticated } from "../helper/user";
+import { AiFillHeart } from 'react-icons/ai';
 
 const MenuItemCard = (props) => {
   const [quantity, setQuantity] = useState(1);
@@ -8,6 +9,11 @@ const MenuItemCard = (props) => {
   const [showLoginOverlay, setShowLoginOverlay] = useState(false);
   const { data } = props;
   const { user,token } = isAuthenticated();
+  const [liked, setLiked] = useState(false);
+
+  const toggleLike = () => {
+    setLiked((prevLiked) => !prevLiked);
+  };
 
 
   const openOrderDialog = () => {
@@ -79,11 +85,21 @@ const MenuItemCard = (props) => {
       <div className="card__info">
         <div className="car__info--title">
           <h3>{data ? data.name : ""}</h3>
-          {/* <div className="card__info--price"> <p>${data ? data.price : ''}</p></div> */}
-          <p>fried</p>
+        
+          <span id="heart" onClick={toggleLike}>
+      {liked ? (
+        <AiFillHeart className="fa fa-heart"/>
+        // <i className="fa fa-heart" aria-hidden="true">hii</i>
+      ) : (
+        <AiFillHeart className="fa fa-heart-o"/>
+
+        // <i className="fa fa-heart-o" aria-hidden="true"></i>
+      )}
+    </span>
+
         </div>
         <div className="card__info--price">
-          <p>${data ? data.price : ""}</p>
+          <p>Rs.{data ? data.price : ""}</p>
           <button className="btn btn-primary" onClick={openOrderDialog}>
             Order Now
           </button>
