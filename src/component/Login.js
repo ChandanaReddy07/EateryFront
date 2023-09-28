@@ -23,6 +23,9 @@ function Login({onClose}) {
         password,
       });
       const userData = response.data;
+
+      
+      console.log(userData)
   
       authenticate(userData, () => {
         setEmail("")
@@ -30,12 +33,23 @@ function Login({onClose}) {
       });
 
       onClose(); 
-      window.location.href = "/menu";// Close the overlay after successful login
+      // window.location.href = "/menu";// Close the overlay after successful login
+      console.log(userData)
+
     } catch (error) {
-      setEmail("")
-      setPassword("")
-      console.error("Login failed:", error);
-      setErrorMessage("Email or password is incorrect"); // Set error message
+
+        // Check if the error response contains an error message
+        if (error.response && error.response.data && error.response.data.error) {
+          const errorMessage = error.response.data.error;
+          setErrorMessage(errorMessage);
+        } else {
+          console.error("Login failed:", error);
+          setErrorMessage("An error occurred during the login process. Please try again later."); // Set a generic error message for unexpected errors
+        }
+
+        setEmail("");
+        setPassword("");
+        
     }
   };
 
