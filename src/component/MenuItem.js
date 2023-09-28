@@ -177,7 +177,7 @@ const MenuItemCard = (props) => {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Order Placed</h5>
+                <h5 className="modal-title">Order Placed ✅</h5>
                 <button
                   type="button"
                   className="close"
@@ -190,7 +190,7 @@ const MenuItemCard = (props) => {
                 </button>
               </div>
               <div className="modal-body">
-                <p>Your order has been placed successfully!</p>
+                <p>Your order has been placed successfully! 😁</p>
               </div>
               <div className="modal-footer">
                 <button
