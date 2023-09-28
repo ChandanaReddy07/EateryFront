@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Restaurant App - MERN Stack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Restaurant App, a full-stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. This application simulates the process of dining at a restaurant, allowing users to view the menu, place orders, calculate bills, and pay online.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Demo](#demo)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You can access the live demo of the application here: [Live Demo](#[insert-live-demo-url](https://eatery-front.vercel.app/))
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **User Authentication:** Users can sign up and log in to the application.
+- **Menu Viewing:** Users can view the restaurant's menu, including item names and prices.
+- **Order Placement:** Users can add items to their orders, specify quantities, and place orders.
+- **Bill Calculation:** The application automatically calculates the bill, including the subtotal and tip.
+- **Payment Processing:** Users can pay their bills online using secure payment methods.
+- **PDF Bill Generation:** A PDF bill is generated for each order, including all details.
+- **User-Friendly Interface:** The application provides an intuitive and visually appealing user interface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- **Frontend:**
+  - React.js
+  - HTML5
+  - CSS3
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Backend:**
+  - Node.js
+  - Express.js
+  - MongoDB (MongoDB Atlas)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Payment Gateway:**
+  - [Stripe](https://razorpay.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **PDF Generation:**
+  - [jsPDF](https://github.com/MrRio/jsPDF)
+  - [jspdf-autotable](https://github.com/simonbengtsson/jsPDF-AutoTable)
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before you begin, ensure you have met the following requirements:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js and npm installed locally.
+- MongoDB database connection or a MongoDB Atlas account.
+- Razorpay account for payment processing.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Installation
 
-## Learn More
+1. Clone the repository:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   git clone https://github.com/your-username/restaurant-app.git
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install frontend dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up the environment variable
+   ```
+   # MongoDB connection URL
+   MONGO_URI=your-mongodb-uri
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   # Stripe API keys
+   STRIPE_PUBLIC_KEY=your-stripe-public-key
+   STRIPE_SECRET_KEY=your-stripe-secret-key
+      
+4. Star the frontend development server:
+   ```bash
+   npm start
+   ```
+   
