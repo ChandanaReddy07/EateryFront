@@ -105,7 +105,7 @@ function Bill({ userId }) {
     const tableData = orderDetails.map((item) => [
       item.quantity,
       item.itemName,
-      `$Rs. {(item.price * item.quantity).toFixed(2)}`,
+      `Rs. ${(item.price * item.quantity).toFixed(2)}`,
     ]);
 
     doc.autoTable({
@@ -118,9 +118,9 @@ function Bill({ userId }) {
     const tipAmount = calculateTip();
     const total = calculateTotal();
 
-    doc.text(`Subtotal: $Rs. {subtotal}`, 10, doc.autoTable.previous.finalY + 10);
-    doc.text(`Tip: $Rs. ${tipAmount}`, 10, doc.autoTable.previous.finalY + 20);
-    doc.text(`Total: $Rs. {total}`, 10, doc.autoTable.previous.finalY + 30);
+    doc.text(`Subtotal:    Rs. ${subtotal}`, 10, doc.autoTable.previous.finalY + 10);
+    doc.text(`Tip:         Rs. ${tipAmount}`, 10, doc.autoTable.previous.finalY + 20);
+    doc.text(`Total:       Rs. ${total}`, 10, doc.autoTable.previous.finalY + 30);
 
     doc.save("bill.pdf");
   };
