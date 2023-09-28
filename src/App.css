@@ -260,6 +260,11 @@ body {
   align-items: center;
   height: 100%;
 }
+.container2{
+  position: relative; /* Set the parent container as relative */
+  height: 100vh; /* Set a height for the parent container (e.g., 100% of viewport height) */
+  overflow: auto; 
+}
 
 .navbar {
   width:100%;
@@ -267,6 +272,9 @@ body {
   background-color: #fef7e5;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: sticky;
+   top: 0 ;
+   z-index:10;
 }
 
 .menu-icon {

@@ -14,6 +14,8 @@ function Menu() {
   const [filteredItems, setFilteredItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Z"); // Default to show all items
   const [isMobileView, setIsMobileView] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
+
 
   const handleResize = useCallback(() => {
     // Check if the screen width is less than or equal to 768 pixels
@@ -25,6 +27,7 @@ function Menu() {
     axios.get("https://eatery-syux.onrender.com/menu/menu").then((response) => {
       setMenuItems(response.data);
       setFilteredItems(response.data);
+      setIsLoading(false); // Mark loading as complete
     });
   }, []);
 
@@ -58,9 +61,10 @@ function Menu() {
   };
 
   return (
-    <div className="container2">
+    <div className="container2" >
+      <div className="sms" style={{ position: "sticky", top: "0", zIndex: "1", backgroundColor: "white" }}>
       <h2 style={{fontFamily: "Dancing Script, cursive",textAlign:"center",fontSize:"2rem"}}>Tasty Food</h2>
-      <div className="containerb">
+      <div className="containerb" style={{ position: "sticky", top: "0" ,zIndex: "1",backgroundColor:"white"}}>
         
         {[["All Items","Z"], ["Starters","A"], ["Main Courses","C"], ["Beverages","B"], ["Desserts","D"]].map(
           (category) => (
@@ -76,9 +80,12 @@ function Menu() {
             </div>
           )
         )}
+        </div>
  
 
-      {isMobileView ? (
+ {isLoading ? (
+          <div className="loader" style={{textAlign:"center",width:"100%"}}>Loading...</div>
+        ) : isMobileView ? (
         // Mobile view: Categories are static, only items are scrollable
         <div className="mobile-items-container">
           {filteredItems.map((item) => (
@@ -95,6 +102,7 @@ function Menu() {
           ))}
         </Carousel>
       )}
+      
            </div>
     </div>
   );
