@@ -17,7 +17,7 @@ Welcome to the Restaurant App, a full-stack web application built using the MERN
 
 ## Demo
 
-You can access the live demo of the application here: [Live Demo](#[insert-live-demo-url](https://eatery-front.vercel.app/))
+You can access the live demo of the application here: [Live Demo](https://eatery-front.vercel.app/)
 
 ## Features
 
@@ -42,7 +42,7 @@ You can access the live demo of the application here: [Live Demo](#[insert-live-
   - MongoDB (MongoDB Atlas)
 
 - **Payment Gateway:**
-  - [Stripe](https://razorpay.com/)
+  - [Razorpay](https://razorpay.com/)
 
 - **PDF Generation:**
   - [jsPDF](https://github.com/MrRio/jsPDF)
@@ -75,9 +75,9 @@ Before you begin, ensure you have met the following requirements:
    # MongoDB connection URL
    MONGO_URI=your-mongodb-uri
 
-   # Stripe API keys
-   STRIPE_PUBLIC_KEY=your-stripe-public-key
-   STRIPE_SECRET_KEY=your-stripe-secret-key
+   # Razorpay API keys
+   KEY_ID=your-razorpay-key-id
+   KEY_SECRET=your-razorpay-secret-key
       
 4. Star the frontend development server:
    ```bash
