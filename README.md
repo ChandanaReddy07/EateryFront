@@ -17,7 +17,7 @@ Welcome to the Restaurant App, a full-stack web application built using the MERN
 
 ## Demo
 
-You can access the live demo of the application here: [Live Demo](#[insert-live-demo-url](https://eatery-front.vercel.app/))
+You can access the live demo of the application here: [Live Demo](https://eatery-front.vercel.app/)
 
 ## Features
 
