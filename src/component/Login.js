@@ -28,11 +28,9 @@ function Login({onClose}) {
         setEmail("")
         setPassword("")
       });
-    
 
-  
-
-      onClose(); // Close the overlay after successful login
+      onClose(); 
+      window.location.href = "/menu";// Close the overlay after successful login
     } catch (error) {
       setEmail("")
       setPassword("")

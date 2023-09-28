@@ -10,6 +10,7 @@ const MenuItemCard = (props) => {
   const { data } = props;
   const { user,token } = isAuthenticated();
   const [liked, setLiked] = useState(false);
+  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
 
   const toggleLike = () => {
     setLiked((prevLiked) => !prevLiked);
@@ -73,7 +74,8 @@ const MenuItemCard = (props) => {
       console.error("Error placing order:", error);
       // Handle the error as needed
     } finally {
-      closeOrderDialog(); // Close the order dialog after placing the order
+      closeOrderDialog(); 
+      setShowConfirmationDialog(true);// Close the order dialog after placing the order
     }
   };
 
@@ -162,6 +164,44 @@ const MenuItemCard = (props) => {
                   onClick={confirmOrder}
                 >
                   Confirm Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+
+{showConfirmationDialog && (
+        <div className="overlay">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Order Placed</h5>
+                <button
+                  type="button"
+                  className="close"
+                  onClick={() => {
+                    setShowConfirmationDialog(false);
+                    // Optionally, you can perform any additional actions here
+                  }}
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p>Your order has been placed successfully!</p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    setShowConfirmationDialog(false);
+                    // Optionally, you can perform any additional actions here
+                  }}
+                >
+                  Close
                 </button>
               </div>
             </div>
